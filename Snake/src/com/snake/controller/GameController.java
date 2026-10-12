@@ -1,13 +1,48 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package main.java.com.snake.controller;
+package com.snake.controller;
 
-/**
- *
- * @author User
- */
+import com.snake.model.Direction;
+import com.snake.model.Snake;
+
 public class GameController {
-    
+
+    private final Snake snake;
+    private int movements;
+
+    public GameController() {
+        snake = new Snake();
+        movements = 0;
+    }
+
+    public void moveSnake() {
+        snake.move();
+        movements++;
+
+        System.out.println(
+            "\n=== MOVIMIENTO " + movements + " ==="
+        );
+
+        System.out.println(
+            "Direccion: " + snake.getDirection()
+        );
+
+        System.out.println(
+            "Cabeza: " + snake.getHead()
+        );
+
+        snake.printBody();
+
+        System.out.println(
+            "Longitud: " + snake.getLength()
+        );
+    }
+
+    public void changeDirection(Direction direction) {
+        snake.changeDirection(direction);
+    }
+
+    public void showInitialState() {
+        System.out.println("=== SNAKE GAME ===");
+        System.out.println("Estado inicial:");
+        snake.printBody();
+    }
 }

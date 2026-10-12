@@ -1,13 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package main.java.com.snake.model;
+package com.snake.model;
 
-/**
- *
- * @author User
- */
-public class Direction {
-    
+public enum Direction { // enum -> definir direcciones posibles
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
 }

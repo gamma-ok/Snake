@@ -3,15 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/main/java/com/snake/model/Position.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/main/java/com/snake/model/Direction.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/main/java/com/snake/controller/GameController.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/main/java/com/snake/datastructure/Node.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/main/java/com/snake/datastructure/DoublyLinkedList.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/main/java/com/snake/view/GameFrame.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/main/java/com/snake/config/GameConfig.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/main/java/com/snake/input/KeyboardHandler.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/main/java/com/snake/model/Snake.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/com/snake/controller/GameController.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/com/snake/app/Main.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/com/snake/model/Position.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/com/snake/model/Snake.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/com/snake/datastructure/Node.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/com/snake/model/Direction.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/Snake/Snake/src/com/snake/datastructure/DoublyLinkedList.java</file>
         </group>
     </open-files>
 </project-private>
