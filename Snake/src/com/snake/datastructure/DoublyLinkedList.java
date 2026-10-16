@@ -13,6 +13,7 @@ public class DoublyLinkedList {
         size = 0;
     }
 
+    // Agregar un nodo al inicio
     public void addFirst(Position position) {
         Node newNode = new Node(position);
 
@@ -28,6 +29,7 @@ public class DoublyLinkedList {
         size++;
     }
 
+    // Eliminar el último nodo
     public void removeLast() {
         if (tail == null) {
             return;
@@ -44,6 +46,7 @@ public class DoublyLinkedList {
         size--;
     }
 
+    // Obtener la cabeza de la lista
     public Position getFirst() {
         if (head == null) {
             return null;
@@ -51,11 +54,22 @@ public class DoublyLinkedList {
 
         return head.getData();
     }
+    
+    // Obtejer la última posición de la serpiente
+    public Position getLast() {
+        if (tail == null) {
+            return null;
+        }
+        return tail.getData();
+    }
 
+
+    // Obtener el tamaño de la lista
     public int size() {
         return size;
     }
 
+    // Comprobar si una coordenada ya está ocupada
     public boolean contains(Position position) {
         Node current = head;
 
@@ -73,6 +87,7 @@ public class DoublyLinkedList {
         return false;
     }
 
+    // Mostrar todos los nodos desde la cabeza hasta la cola
     public void print() {
         Node current = head;
 

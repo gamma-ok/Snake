@@ -1,34 +1,21 @@
 package com.snake.app;
 
 import com.snake.controller.GameController;
-import com.snake.model.Direction;
+import com.snake.view.GameFrame;
+import javax.swing.SwingUtilities;
 
 public class Main {
     public static void main(String[] args) {
 
-        GameController game = new GameController();
+        SwingUtilities.invokeLater(() -> {
 
-        game.showInitialState();
+            GameController controller = new GameController();
 
-        // Movimiento 1: Derecha
-        game.moveSnake();
+            GameFrame frame = new GameFrame();
+            frame.setController(controller);
+            frame.setVisible(true);
 
-        // Movimiento 2: Derecha
-        game.moveSnake();
-
-        // Cambiar direccion hacia abajo
-        game.changeDirection(Direction.DOWN);
-
-        // Movimiento 3: Abajo
-        game.moveSnake();
-
-        // Movimiento 4: Abajo
-        game.moveSnake();
-
-        // Cambiar direccion hacia izquierda
-        game.changeDirection(Direction.LEFT);
-
-        // Movimiento 5: Izquierda
-        game.moveSnake();
+            controller.start();
+        });
     }
 }
