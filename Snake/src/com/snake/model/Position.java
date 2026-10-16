@@ -1,8 +1,8 @@
 package com.snake.model;
 
 public class Position {
-    private final int x; // final -> posición inmutable
-    private final int y; // final -> posición inmutable
+    private final int x;
+    private final int y;
 
     public Position(int x, int y) {
         this.x = x;

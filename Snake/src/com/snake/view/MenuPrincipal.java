@@ -46,14 +46,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         tituloForm.setForeground(new java.awt.Color(255, 140, 5));
         tituloForm.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloForm.setText("Menú Principal");
-        getContentPane().add(tituloForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 420, 60));
+        getContentPane().add(tituloForm, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 520, 60));
 
         info.setBackground(new java.awt.Color(255, 255, 255));
         info.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         info.setForeground(new java.awt.Color(255, 255, 255));
         info.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         info.setText("<html><center>Centraliza la administración de funciones<p>clave para optimizar operaciones.<center><html>");
-        getContentPane().add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 420, 80));
+        getContentPane().add(info, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 530, 80));
 
         btnGestionProveedores.setBackground(new java.awt.Color(255, 140, 5));
         btnGestionProveedores.setFont(new java.awt.Font("Trebuchet MS", 1, 20)); // NOI18N
@@ -68,7 +68,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnGestionProveedoresActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGestionProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 280, 50));
+        getContentPane().add(btnGestionProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 280, 50));
 
         bgBtnGestionProveedores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bgBtnGestionProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -84,7 +84,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 copyrightMousePressed(evt);
             }
         });
-        getContentPane().add(copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 530, -1, 20));
+        getContentPane().add(copyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 670, -1, 20));
 
         bg1.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(bg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 420, 60));

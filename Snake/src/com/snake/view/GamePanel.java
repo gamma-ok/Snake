@@ -16,20 +16,11 @@ public class GamePanel extends JPanel {
 
     private final GameController controller;
 
-    private static final Color BACKGROUND_COLOR =
-            new Color(18, 28, 22);
-
-    private static final Color BOARD_COLOR =
-            new Color(30, 45, 34);
-
-    private static final Color GRID_COLOR =
-            new Color(43, 61, 46);
-
-    private static final Color SNAKE_HEAD_COLOR =
-            new Color(190, 245, 145);
-
-    private static final Color SNAKE_BODY_COLOR =
-            new Color(91, 196, 101);
+    private static final Color BACKGROUND_COLOR = new Color(20, 24, 33); // Fondo exterior
+    private static final Color BOARD_COLOR = new Color(32, 38, 51); // Fondo interior
+    private static final Color GRID_COLOR = new Color(48, 56, 73); // Lineas de celdas
+    private static final Color SNAKE_HEAD_COLOR = new Color(255, 179, 71); // Cabeza
+    private static final Color SNAKE_BODY_COLOR = new Color(224, 130, 43); // Cuerpo
 
     public GamePanel(GameController controller) {
         this.controller = controller;
@@ -63,7 +54,7 @@ public class GamePanel extends JPanel {
             int boardHeight =
                     GameConfig.BOARD_ROWS * cellSize;
 
-            // Centrar el tablero dentro del panel
+            // Centrar tablero dentro del panel
             int offsetX = (getWidth() - boardWidth) / 2;
             int offsetY = (getHeight() - boardHeight) / 2;
 
@@ -77,7 +68,7 @@ public class GamePanel extends JPanel {
                     boardHeight
             );
 
-            // Dibujar las líneas de la cuadrícula
+            // Dibujar líneas del tablero
             g2.setColor(GRID_COLOR);
 
             for (int col = 0;
@@ -108,24 +99,18 @@ public class GamePanel extends JPanel {
                 );
             }
 
-            // Obtener una copia de las posiciones
+            // Obtener copia de las posiciones
             List<Position> positions =
                     controller.getSnakePositions();
 
-            // Dibujar la serpiente
-            for (int i = positions.size() - 1;
-                    i >= 0;
-                    i--) {
-
+            // Dibujar serpiente
+            for (int i = positions.size() - 1; i >= 0; i--) {
                 Position position = positions.get(i);
 
-                int x = offsetX
-                        + position.getX() * cellSize;
+                int x = offsetX + position.getX() * cellSize;
+                int y = offsetY + position.getY() * cellSize;
 
-                int y = offsetY
-                        + position.getY() * cellSize;
-
-                // La cabeza tiene un color distinto
+                // Color de la cabeza de la serpiente
                 if (i == 0) {
                     g2.setColor(SNAKE_HEAD_COLOR);
                 } else {
@@ -141,9 +126,10 @@ public class GamePanel extends JPanel {
                         7
                 );
 
+                /*
                 // Ojos de la cabeza
                 if (i == 0) {
-                    g2.setColor(new Color(25, 48, 30));
+                    g2.setColor(new Color(25, 48, 30)); // Ojos
 
                     g2.fillOval(
                             x + cellSize / 3,
@@ -159,6 +145,7 @@ public class GamePanel extends JPanel {
                             4
                     );
                 }
+                */
             }
 
         } finally {

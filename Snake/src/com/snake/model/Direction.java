@@ -1,6 +1,7 @@
 package com.snake.model;
 
-public enum Direction { // enum -> definir direcciones posibles
+// Definir conjunto de contantes (direcciones posibles)
+public enum Direction {
     UP,
     DOWN,
     LEFT,

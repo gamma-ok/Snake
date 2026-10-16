@@ -11,7 +11,7 @@ public class GameFrame extends javax.swing.JFrame {
     public GameFrame() {
         initComponents();
 
-        setTitle("Snake Game");
+        setTitle("Snake | By gamma-ok");
         setSize(640, 700);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -20,7 +20,7 @@ public class GameFrame extends javax.swing.JFrame {
     public void setController(GameController controller) {
         this.controller = controller;
 
-        // Crear el panel que dibuja el tablero
+        // Crear panel para el tablero
         gamePanel = new GamePanel(controller);
 
         // El panel personalizado ocupará todo el contenedor

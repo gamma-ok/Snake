@@ -10,7 +10,7 @@ public class Snake {
         body = new DoublyLinkedList();
         direction = Direction.RIGHT;
 
-        // Posiciones iniciales | Crear serpiente de 3 segmentos
+        // Crear serpiente de 3 segmentos + Posiciones
         body.addFirst(new Position(3, 5));
         body.addFirst(new Position(4, 5));
         body.addFirst(new Position(5, 5));
@@ -95,8 +95,6 @@ public class Snake {
             return false;
         }
 
-        // Como todavía no hay comida, la cola se desplazará
-        // y abandonará su posición en el próximo movimiento.
         Position tail = body.getLast();
 
         if (tail != null

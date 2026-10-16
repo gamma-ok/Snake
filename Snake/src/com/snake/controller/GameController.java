@@ -4,11 +4,9 @@ import com.snake.config.GameConfig;
 import com.snake.model.Direction;
 import com.snake.model.Position;
 import com.snake.model.Snake;
-
 import javax.swing.Timer;
 
 public class GameController {
-
     private final Snake snake;
     private Timer timer;
     private int movements;
@@ -30,8 +28,8 @@ public class GameController {
             return;
         }
 
-        System.out.println("===== SNAKE GAME =====");
-        System.out.println("Juego iniciado.");
+        System.out.println("##### SNAKE #####");
+        System.out.println("Iniciando Juego...");
         System.out.println("Direccion: " + snake.getDirection());
         printState();
 
@@ -74,7 +72,7 @@ public class GameController {
         movements++;
         notifyStateChanged();
 
-        System.out.println("\n===== MOVIMIENTO " + movements + " =====");
+        System.out.println("\n##### MOVIMIENTO " + movements + " #####");
 
         printState();
     }
@@ -93,7 +91,7 @@ public class GameController {
             timer.stop();
         }
 
-        System.out.println("\n===== GAME OVER =====");
+        System.out.println("\n##### GAME OVER #####");
         System.out.println(reason);
         System.out.println("Movimientos realizados: " + movements);
         System.out.println("Longitud final: " + snake.getLength());
