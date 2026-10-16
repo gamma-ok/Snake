@@ -1,6 +1,6 @@
 # Snake 🐍
 
-Juego clásico de **Snake** desarrollado en **Java** con **Swing**.
+Juego de **Snake** desarrollado en **Java** con **Swing**.
 
 ## Funcionalidades actuales
 
