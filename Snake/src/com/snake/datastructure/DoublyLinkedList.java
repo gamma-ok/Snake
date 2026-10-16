@@ -1,6 +1,8 @@
 package com.snake.datastructure;
 
 import com.snake.model.Position;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DoublyLinkedList {
     private Node head;
@@ -54,7 +56,7 @@ public class DoublyLinkedList {
 
         return head.getData();
     }
-    
+
     // Obtejer la última posición de la serpiente
     public Position getLast() {
         if (tail == null) {
@@ -62,7 +64,6 @@ public class DoublyLinkedList {
         }
         return tail.getData();
     }
-
 
     // Obtener el tamaño de la lista
     public int size() {
@@ -105,4 +106,19 @@ public class DoublyLinkedList {
 
         System.out.println("]");
     }
+
+    // Recorrer lista (cabeza -> cola)
+    public List<Position> getPositions() {
+        List<Position> positions = new ArrayList<>();
+
+        Node current = head;
+
+        while (current != null) {
+            positions.add(current.getData());
+            current = current.getNext();
+        }
+
+        return positions; // Devolver coords ordenadas (cabeza -> cola)
+    }
+
 }

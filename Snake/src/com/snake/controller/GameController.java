@@ -13,6 +13,7 @@ public class GameController {
     private Timer timer;
     private int movements;
     private boolean gameOver;
+    private Runnable stateChangeListener;
 
     public GameController() {
         snake = new Snake();
@@ -50,49 +51,39 @@ public class GameController {
         Position nextHead = snake.getNextHeadPosition();
 
         // Comprobar los límites del tablero
-        boolean wallCollision =
-                nextHead.getX() < 0
+        boolean wallCollision
+                = nextHead.getX() < 0
                 || nextHead.getX() >= GameConfig.BOARD_COLUMNS
                 || nextHead.getY() < 0
                 || nextHead.getY() >= GameConfig.BOARD_ROWS;
 
         // Comprobar colisión con el cuerpo
-        boolean bodyCollision =
-                snake.willCollideWithBody(nextHead);
+        boolean bodyCollision
+                = snake.willCollideWithBody(nextHead);
 
         if (wallCollision || bodyCollision) {
             finishGame(
                     wallCollision
-                    ? "La serpiente chocó con una pared."
-                    : "La serpiente chocó con su cuerpo."
+                            ? "La serpiente chocó con una pared."
+                            : "La serpiente chocó con su cuerpo."
             );
             return;
         }
 
         snake.move();
         movements++;
+        notifyStateChanged();
 
-        System.out.println(
-                "\n===== MOVIMIENTO " + movements + " ====="
-        );
+        System.out.println("\n===== MOVIMIENTO " + movements + " =====");
 
         printState();
     }
 
     private void printState() {
-        System.out.println(
-                "Direccion: " + snake.getDirection()
-        );
-
-        System.out.println(
-                "Cabeza: " + snake.getHead()
-        );
-
+        System.out.println("Direccion: " + snake.getDirection());
+        System.out.println("Cabeza: " + snake.getHead());
         snake.printBody();
-
-        System.out.println(
-                "Longitud: " + snake.getLength()
-        );
+        System.out.println("Longitud: " + snake.getLength());
     }
 
     private void finishGame(String reason) {
@@ -106,6 +97,8 @@ public class GameController {
         System.out.println(reason);
         System.out.println("Movimientos realizados: " + movements);
         System.out.println("Longitud final: " + snake.getLength());
+        
+        notifyStateChanged();
     }
 
     public void changeDirection(Direction direction) {
@@ -124,5 +117,20 @@ public class GameController {
 
     public boolean isGameOver() {
         return gameOver;
+    }
+
+    public void setStateChangeListener(Runnable listener) {
+        this.stateChangeListener = listener;
+    }
+
+    public void notifyStateChanged() {
+        if (stateChangeListener != null) {
+            stateChangeListener.run();
+        }
+    }
+
+    public java.util.List<com.snake.model.Position>
+            getSnakePositions() {
+        return snake.getBodyPositions();
     }
 }

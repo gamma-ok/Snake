@@ -3,7 +3,6 @@ package com.snake.model;
 import com.snake.datastructure.DoublyLinkedList;
 
 public class Snake {
-
     private final DoublyLinkedList body;
     private Direction direction;
 
@@ -109,4 +108,8 @@ public class Snake {
         return true;
     }
 
+    // Proporciona posiciones sin exponer los nodos internos
+    public java.util.List<Position> getBodyPositions() {
+        return body.getPositions();
+    }
 }

@@ -58,7 +58,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnGestionProveedores.setBackground(new java.awt.Color(255, 140, 5));
         btnGestionProveedores.setFont(new java.awt.Font("Trebuchet MS", 1, 20)); // NOI18N
         btnGestionProveedores.setForeground(new java.awt.Color(255, 255, 255));
-        btnGestionProveedores.setText(" Gestión de Proveedores");
+        btnGestionProveedores.setText("¡Jugar!");
         btnGestionProveedores.setBorder(null);
         btnGestionProveedores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGestionProveedores.setFocusPainted(false);
