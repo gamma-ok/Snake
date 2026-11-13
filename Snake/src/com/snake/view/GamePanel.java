@@ -3,7 +3,6 @@ package com.snake.view;
 import com.snake.config.GameConfig;
 import com.snake.controller.GameController;
 import com.snake.model.Position;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -13,7 +12,6 @@ import java.util.List;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel {
-
     private final GameController controller;
 
     private static final Color BACKGROUND_COLOR = new Color(20, 24, 33); // Fondo exterior
@@ -48,11 +46,11 @@ public class GamePanel extends JPanel {
 
             int cellSize = GameConfig.CELL_SIZE;
 
-            int boardWidth =
-                    GameConfig.BOARD_COLUMNS * cellSize;
+            int boardWidth
+                    = GameConfig.BOARD_COLUMNS * cellSize;
 
-            int boardHeight =
-                    GameConfig.BOARD_ROWS * cellSize;
+            int boardHeight
+                    = GameConfig.BOARD_ROWS * cellSize;
 
             // Centrar tablero dentro del panel
             int offsetX = (getWidth() - boardWidth) / 2;
@@ -100,8 +98,8 @@ public class GamePanel extends JPanel {
             }
 
             // Obtener copia de las posiciones
-            List<Position> positions =
-                    controller.getSnakePositions();
+            List<Position> positions
+                    = controller.getSnakePositions();
 
             // Dibujar serpiente
             for (int i = positions.size() - 1; i >= 0; i--) {
@@ -126,7 +124,6 @@ public class GamePanel extends JPanel {
                         7
                 );
 
-                /*
                 // Ojos de la cabeza
                 if (i == 0) {
                     g2.setColor(new Color(25, 48, 30)); // Ojos
@@ -145,7 +142,23 @@ public class GamePanel extends JPanel {
                             4
                     );
                 }
-                */
+            }
+
+            // Dibujar comida
+            Position food = controller.getFoodPosition();
+
+            if (food != null) {
+                int foodX = offsetX + food.getX() * cellSize;
+                int foodY = offsetY + food.getY() * cellSize;
+
+                g2.setColor(new Color(240, 70, 70));
+
+                g2.fillOval(
+                        foodX + 4,
+                        foodY + 4,
+                        cellSize - 8,
+                        cellSize - 8
+                );
             }
 
         } finally {

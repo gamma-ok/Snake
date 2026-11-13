@@ -2,6 +2,7 @@ package com.snake.controller;
 
 import com.snake.config.GameConfig;
 import com.snake.model.Direction;
+import com.snake.model.Food;
 import com.snake.model.Position;
 import com.snake.model.Snake;
 import javax.swing.Timer;
@@ -12,11 +13,18 @@ public class GameController {
     private int movements;
     private boolean gameOver;
     private Runnable stateChangeListener;
+    private Food food;
+    private int score;
 
     public GameController() {
         snake = new Snake();
         movements = 0;
         gameOver = false;
+
+        food = new Food();
+        score = 0;
+
+        food.generateFood(snake.getBodyPositions());
     }
 
     public void start() {
@@ -48,14 +56,14 @@ public class GameController {
 
         Position nextHead = snake.getNextHeadPosition();
 
-        // Comprobar los límites del tablero
+        // Comprobar límites del tablero
         boolean wallCollision
                 = nextHead.getX() < 0
                 || nextHead.getX() >= GameConfig.BOARD_COLUMNS
                 || nextHead.getY() < 0
                 || nextHead.getY() >= GameConfig.BOARD_ROWS;
 
-        // Comprobar colisión con el cuerpo
+        // Comprobar colisión con cuerpo
         boolean bodyCollision
                 = snake.willCollideWithBody(nextHead);
 
@@ -68,13 +76,38 @@ public class GameController {
             return;
         }
 
-        snake.move();
+        // Comprobar si la serpiente alcanza la comida
+        Position foodPosition = food.getPosition();
+
+        boolean eating = foodPosition != null
+                && nextHead.getX() == foodPosition.getX()
+                && nextHead.getY() == foodPosition.getY();
+
+        // Mover serpiente; si come, aumenta su longitud
+        snake.move(eating);
         movements++;
-        notifyStateChanged();
+
+        // Si come, sumar puntos y generar otra comida
+        if (eating) {
+            score += 10;
+
+            food.generateFood(snake.getBodyPositions());
+
+            System.out.println("\n¡COMIDA CONSUMIDA!");
+            System.out.println("Puntuacion: " + score);
+        }
 
         System.out.println("\n##### MOVIMIENTO " + movements + " #####");
 
         printState();
+
+        // Actualizar interfaz
+        notifyStateChanged();
+
+        // Comprobar si ya no quedan posiciones libres
+        if (!food.isAvailable()) {
+            finishGame("¡La serpiente ha ocupado todo el tablero!");
+        }
     }
 
     private void printState() {
@@ -95,7 +128,7 @@ public class GameController {
         System.out.println(reason);
         System.out.println("Movimientos realizados: " + movements);
         System.out.println("Longitud final: " + snake.getLength());
-        
+
         notifyStateChanged();
     }
 
@@ -130,5 +163,17 @@ public class GameController {
     public java.util.List<com.snake.model.Position>
             getSnakePositions() {
         return snake.getBodyPositions();
+    }
+
+    public Position getFoodPosition() {
+        return food.getPosition();
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public int getSnakeLength() {
+        return snake.getLength();
     }
 }

@@ -3,6 +3,7 @@ package com.snake.model;
 import com.snake.datastructure.DoublyLinkedList;
 
 public class Snake {
+
     private final DoublyLinkedList body;
     private Direction direction;
 
@@ -61,12 +62,21 @@ public class Snake {
         return new Position(x, y);
     }
 
-    // Mover la serpiente un segmento
     public void move() {
-        Position newHead = getNextHeadPosition();
+        move(false);
+    }
 
-        body.addFirst(newHead);
-        body.removeLast();
+    public void move(boolean grow) {
+        // Calcular nueva posición de cabeza
+        Position nextHead = getNextHeadPosition();
+
+        // Agregar nueva cabeza
+        body.addFirst(nextHead);
+
+        // Si no crece, retirar cola
+        if (!grow) {
+            body.removeLast();
+        }
     }
 
     public void printBody() {
