@@ -30,8 +30,15 @@ public class GameFrame extends javax.swing.JFrame {
         // Conectar los controles del teclado
         KeyboardHandler.bind(this, controller);
 
-        // Redibujar cuando cambie el estado del juego
+        // Mostrar valores iniciales
+        lblScore.setText("Puntuación: " + controller.getScore());
+        lblLength.setText("Longitud: " + controller.getSnakeLength());
+
+        // Actualizar la interfaz cuando cambie el juego
         controller.setStateChangeListener(() -> {
+            lblScore.setText("Puntuación: " + controller.getScore());
+            lblLength.setText("Longitud: " + controller.getSnakeLength());
+
             if (gamePanel != null) {
                 gamePanel.repaint();
             }
@@ -54,31 +61,65 @@ public class GameFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlDashboard = new javax.swing.JPanel();
+        lblScore = new javax.swing.JLabel();
+        lblLength = new javax.swing.JLabel();
         pnlGameBoard = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(20, 24, 33));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pnlDashboard.setBackground(new java.awt.Color(20, 24, 33));
+
+        lblScore.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblScore.setForeground(new java.awt.Color(255, 255, 255));
+        lblScore.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblScore.setText("Puntuación: 0");
+        lblScore.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        lblLength.setBackground(new java.awt.Color(20, 24, 33));
+        lblLength.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblLength.setForeground(new java.awt.Color(255, 255, 255));
+        lblLength.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLength.setText("Longitud: 3");
+        lblLength.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout pnlDashboardLayout = new javax.swing.GroupLayout(pnlDashboard);
+        pnlDashboard.setLayout(pnlDashboardLayout);
+        pnlDashboardLayout.setHorizontalGroup(
+            pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDashboardLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(lblScore, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblLength, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+        pnlDashboardLayout.setVerticalGroup(
+            pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(lblScore, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblLength, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        getContentPane().add(pnlDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
+
+        pnlGameBoard.setBackground(new java.awt.Color(20, 24, 33));
 
         javax.swing.GroupLayout pnlGameBoardLayout = new javax.swing.GroupLayout(pnlGameBoard);
         pnlGameBoard.setLayout(pnlGameBoardLayout);
         pnlGameBoardLayout.setHorizontalGroup(
             pnlGameBoardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         pnlGameBoardLayout.setVerticalGroup(
             pnlGameBoardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 660, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlGameBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlGameBoard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(pnlGameBoard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 640, 660));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -96,6 +137,9 @@ public class GameFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblLength;
+    private javax.swing.JLabel lblScore;
+    private javax.swing.JPanel pnlDashboard;
     private javax.swing.JPanel pnlGameBoard;
     // End of variables declaration//GEN-END:variables
 }
